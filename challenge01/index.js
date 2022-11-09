@@ -1,4 +1,4 @@
-import { users } from "./users.mjs"
+import { users } from "./users.js"
 const test = `usr:@midudev eme:mi@gmail.com psw:123456 age:22 loc:bcn fll:82
 
 fll:111 eme:yrfa@gmail.com usr:@codember psw:123456 age:21 loc:World
@@ -39,18 +39,16 @@ const checkValidUsers = (input = "") => {
   const validUsers = []
   
   input.split("\n").forEach(line => {
-    let stringToValidate = ""
     concatString = concatString.concat(line + ' ')
 
     if (line.length === 0) {
-      stringToValidate = concatString
-      concatString = ""
-    } 
-    if (stringToValidate.length > 0) {
-      if (REQUIRED.every(field => stringToValidate.includes(field))) {
-        validUsers.push(stringToValidate)
+      if (REQUIRED.every(field => concatString.includes(field))) {
+        validUsers.push(concatString)
       }
-    }
+      concatString = ""
+
+      return
+    } 
   })
 
   return {
