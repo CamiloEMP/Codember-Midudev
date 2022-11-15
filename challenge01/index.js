@@ -37,18 +37,17 @@ const REQUIRED = ["usr:", "eme:", "psw:", "age:", "loc:", "fll:"]
 const checkValidUsers = (input = "") => {
   let concatString = ""
   const validUsers = []
-  
-  input.split("\n").forEach(line => {
-    concatString = concatString.concat(line + ' ')
 
-    if (line.length === 0) {
-      if (REQUIRED.every(field => concatString.includes(field))) {
-        validUsers.push(concatString)
-      }
-      concatString = ""
+  input.split("\n").forEach((line) => {
+    if (line.length > 0) {
+      concatString = concatString.concat(line + " ")
+    }
 
-      return
-    } 
+    if (REQUIRED.every((field) => concatString.includes(field))) {
+      validUsers.push(concatString)
+    }
+
+    concatString = ""
   })
 
   return {
