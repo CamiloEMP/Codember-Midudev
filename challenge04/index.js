@@ -11,7 +11,6 @@ const inAscOrder = (number = 0) => {
 
 const generatePasswords = () => {
   const passwordsAccepted = []
-  let currValue = MIN
   for (let i = MIN; i <= MAX; i++) {
     if (!inAscOrder(i)) continue
 
