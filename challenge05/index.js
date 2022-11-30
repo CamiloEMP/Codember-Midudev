@@ -10,8 +10,7 @@ const main = (mecenas = []) => {
     if(isOdd) battleRoyale.shift();
   }
 
-  // console.log(battleRoyale);
-  // console.log(`submit => submit ${battleRoyale[0].name}-${battleRoyale[0].position}`);
+  console.log(`submit ${battleRoyale[0].name}-${battleRoyale[0].position}`);
 }
 
 main(mecenasData)
